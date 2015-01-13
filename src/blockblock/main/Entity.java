@@ -79,7 +79,7 @@ public class Entity extends Instance {
 		}
 
 		if(!onGround)
-			addForce(new Vector3f(0f,0.40f,0f));
+			addForce(new Vector3f(0f,0.35f,0f));
 
 
 	}
@@ -104,18 +104,18 @@ public class Entity extends Instance {
 
 	public Chunk getChunk(){
 		for(int x = 0; x < world.chunks.length; x++){
-			for(int y = 0; y < world.chunks[x].length; y++){
-				for(int z = 0; z < world.chunks[x][y].length; z++){
-					Chunk chunk = world.chunks[x][y][z];
-					if(chunk != null){
 
-						if(-this.x >= chunk.x && -this.x <= chunk.x+16 && -this.z >= chunk.z && -this.z <= chunk.z+16){
+			for(int z = 0; z < world.chunks[x].length; z++){
+				Chunk chunk = world.chunks[x][z];
+				if(chunk != null){
 
-							return chunk;
-						}
+					if(-this.x >= chunk.x && -this.x <= chunk.x+16 && -this.z >= chunk.z && -this.z <= chunk.z+16){
+
+						return chunk;
 					}
 				}
 			}
+
 		}
 		return null;
 	}

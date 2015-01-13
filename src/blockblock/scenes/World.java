@@ -7,13 +7,13 @@ import blockblock.main.WorldGenerator;
 
 public class World extends Scene {
 
-	public Chunk[][][] chunks = new Chunk[WorldGenerator.worldWidth][WorldGenerator.worldDepth][WorldGenerator.worldWidth];
+	public Chunk[][] chunks = new Chunk[WorldGenerator.worldWidth][WorldGenerator.worldWidth];
 	WorldGenerator generator = new WorldGenerator();
 	public Camera camera = new Camera(this,0,0,0);
 
 	public World(){
 		//instantiate(new Block(BlockType.Dirt,0,1,-10));
-		camera.y = -25;
+		camera.y = -16*7;
 		camera.x = -10;
 		camera.z = -10;
 		generator.generateWorld(this);
@@ -22,9 +22,9 @@ public class World extends Scene {
 	@Override
 	public void tick() {
 		for(int x = 0; x < chunks.length; x++){
-			for(int y = 0; y < chunks[x].length; y++){
-				for(int z = 0; z < chunks[x][y].length; z++){
-					Chunk chunk = chunks[x][y][z];
+			
+				for(int z = 0; z < chunks[x].length; z++){
+					Chunk chunk = chunks[x][z];
 					if(chunk != null){
 						if(chunk.isVisible()){
 							if(chunk.init == false){
@@ -35,7 +35,7 @@ public class World extends Scene {
 						}
 					}
 				}
-			}
+			
 		}
 
 	}
@@ -43,16 +43,16 @@ public class World extends Scene {
 	@Override
 	public void draw() {
 		for(int x = 0; x < chunks.length; x++){
-			for(int y = 0; y < chunks[x].length; y++){
-				for(int z = 0; z < chunks[x][y].length; z++){
-					Chunk chunk = chunks[x][y][z];
+			
+				for(int z = 0; z < chunks[x].length; z++){
+					Chunk chunk = chunks[x][z];
 					if(chunk != null){
 						if(chunk.isVisible()){
 							chunk.draw();
 						}
 					}
 				}
-			}
+			
 		}
 
 	}

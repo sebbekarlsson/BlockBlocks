@@ -19,7 +19,7 @@ public class Camera extends Entity {
 		yrot += Mouse.getDX();
 		xrot -= Mouse.getDY();
 		
-		if(Keyboard.isKeyDown(Keyboard.KEY_UP)){
+		if(Keyboard.isKeyDown(Keyboard.KEY_W)){
 			x -= Math.sin(Math.toRadians(yrot)) * speed;
 			z += Math.cos(Math.toRadians(yrot)) * speed;
 			//y += Math.sin(Math.toRadians(xrot)) * speed;

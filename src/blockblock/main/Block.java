@@ -24,14 +24,14 @@ public class Block extends Instance {
 		boolean draw = true;
 
 		
-		if((x - chunk.x)-1 >= 0 && (x - chunk.x)+1 <= 15 && (z - chunk.z)-1 >= 0 && (z - chunk.z)+1 <= 15  && (y - chunk.y)-1 >= 0 && (y - chunk.y)+1 <= 15){
+		if((x - chunk.x)-1 >= 0 && (x - chunk.x)+1 <= 15 && (z - chunk.z)-1 >= 0 && (z - chunk.z)+1 <= 15  && (y)-1 >= 0 && (y)+1 <= 15){
 			if(
-					chunk.blocks[(int)((x - chunk.x)-1)][(int)(y - chunk.y)][(int)(z - chunk.z)] != null && chunk.blocks[(int)((x - chunk.x)+1)][(int)(y - chunk.y)][(int)(z - chunk.z)] != null
-					&& chunk.blocks[(int)((x - chunk.x)+1)][(int)(y - chunk.y)][(int)(z - chunk.z)] != null
-					&& chunk.blocks[(int)(x - chunk.x)][(int)((y - chunk.y)-1)][(int)(z - chunk.z)] != null
-					&& chunk.blocks[(int)(x - chunk.x)][(int)((y - chunk.y)+1)][(int)(z - chunk.z)] != null
-					&& chunk.blocks[(int)(x - chunk.x)][(int)(y - chunk.y)][(int)((z - chunk.z)-1)] != null
-					&& chunk.blocks[(int)(x - chunk.x)][(int)(y - chunk.y)][(int)((z - chunk.z)+1)] != null
+					chunk.blocks[(int)((x - chunk.x)-1)][(int)(y)][(int)(z - chunk.z)] != null && chunk.blocks[(int)((x - chunk.x)+1)][(int)(y)][(int)(z - chunk.z)] != null
+					&& chunk.blocks[(int)((x - chunk.x)+1)][(int)(y)][(int)(z - chunk.z)] != null
+					&& chunk.blocks[(int)(x - chunk.x)][(int)((y)-1)][(int)(z - chunk.z)] != null
+					&& chunk.blocks[(int)(x - chunk.x)][(int)((y)+1)][(int)(z - chunk.z)] != null
+					&& chunk.blocks[(int)(x - chunk.x)][(int)(y)][(int)((z - chunk.z)-1)] != null
+					&& chunk.blocks[(int)(x - chunk.x)][(int)(y)][(int)((z - chunk.z)+1)] != null
 					){
 				draw = false;
 			}
