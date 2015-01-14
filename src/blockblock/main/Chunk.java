@@ -22,15 +22,20 @@ public class Chunk {
 	}
 	
 	public void init(){
+	
+		
 		for(int i = 0; i < chunkImage.getWidth(); i++){
 			for(int ii = 0; ii < chunkImage.getHeight(); ii++){
+				
 				Color color = new Color(chunkImage.getRGB(i, ii));
-				int blockY = 62-color.getGreen();
+				int blockY = 64-color.getGreen();
 				blocks[i][blockY][ii] = new Block(BlockType.GRASS,this,x+i,blockY,z+ii);
 				
-				for(int b = blockY-1; b > blockY-10; b--){
-					blocks[i][blockY-b][ii] = new Block(BlockType.STONE,this,x+i,blockY-b,z+ii);
+				
+				for(int b = 0; b < 10; b++){
+				blocks[i][(blockY-1)-b][ii] = new Block(BlockType.STONE,this,x+i,(blockY-1)-b,z+ii);
 				}
+				
 			}
 		}
 	}

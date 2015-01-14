@@ -36,7 +36,7 @@ public class Game {
 		
 		GL11.glMatrixMode(GL11.GL_PROJECTION);
 		GL11.glLoadIdentity();
-		GLU.gluPerspective(92f, Display.getWidth() / Display.getHeight(), 1f, 1000f);
+		GLU.gluPerspective(92f, (Display.getWidth() / Display.getHeight())*2, 1f, 1000f);
 		GL11.glMatrixMode(GL11.GL_MODELVIEW);
 		GL11.glEnable(GL11.GL_DEPTH_TEST);
 		GL11.glEnable(GL11.GL_TEXTURE_2D);

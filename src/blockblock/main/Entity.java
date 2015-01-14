@@ -11,6 +11,7 @@ public class Entity extends Instance {
 	public float frictionY = 0f;
 	public World world;
 	public boolean onGround = false;
+	public Vector3f vector = new Vector3f(0,0,0);
 
 	public Entity(World world,float x, float y, float z) {
 		super(x, y, z);
@@ -22,23 +23,12 @@ public class Entity extends Instance {
 		x += dx;
 		y += dy;
 		z += dz;
+		vector.x = dx;
+		vector.y = dy;
+		vector.z = dz;
+		
+		
 
-		Chunk chunk = getChunk();
-		if(chunk != null){
-			for(int x = 0; x < chunk.blocks.length; x++){
-				for(int y = 0; y < chunk.blocks[x].length; y++){
-					for(int z = 0; z < chunk.blocks[x][y].length; z++){
-						Block block = chunk.blocks[x][y][z];
-						if(Collision.pointMeeting(-this.x, -this.y-4, -this.z, block)){
-
-							onGround = true;
-							addForce(new Vector3f(0,-dy,0));
-
-						}
-					}
-				}
-			}
-		}
 
 
 		if(dx < 0){
@@ -76,6 +66,29 @@ public class Entity extends Instance {
 			if(dz - friction < 0){
 				dz = 0;
 			}else{dz -= friction;}
+		}
+		
+	
+
+		
+		Chunk chunk = getChunk();
+		if(chunk != null){
+			for(int x = 0; x < chunk.blocks.length; x++){
+				for(int y = 0; y < chunk.blocks[x].length; y++){
+					for(int z = 0; z < chunk.blocks[x][y].length; z++){
+						Block block = chunk.blocks[x][y][z];
+						if(Collision.pointMeeting(-this.x, -this.y-2, -this.z, block)){
+
+							onGround = true;
+							addForce(new Vector3f(0,-(dy),0));
+
+						}
+						if(Collision.overLapping(this, block)){
+							addForce(new Vector3f(-(vector.x+0.1f),0,-(vector.z+0.1f)));
+						}
+					}
+				}
+			}
 		}
 
 		if(!onGround)

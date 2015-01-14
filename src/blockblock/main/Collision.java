@@ -9,4 +9,13 @@ public class Collision {
 		}
 		return false;
 	}
+
+	public static boolean overLapping(Instance instance1, Instance instance2){
+		if(instance1 != null && instance2 != null){
+			if(-instance1.x >= instance2.x && -instance1.x <= instance2.x+1 && -instance1.y >= instance2.y && -instance1.y <= instance2.y+1 && -instance1.z >= instance2.z && -instance1.z <= instance2.z+1){
+				return true;
+			}
+		}
+		return false;
+	}
 }

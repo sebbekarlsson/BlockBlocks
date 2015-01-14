@@ -13,7 +13,7 @@ public class World extends Scene {
 
 	public World(){
 		//instantiate(new Block(BlockType.Dirt,0,1,-10));
-		camera.y = -16*7;
+		camera.y = -16*4;
 		camera.x = -10;
 		camera.z = -10;
 		generator.generateWorld(this);

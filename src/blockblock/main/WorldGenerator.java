@@ -11,7 +11,7 @@ import javax.imageio.ImageIO;
 import blockblock.scenes.World;
 
 public class WorldGenerator {
-	public static int worldWidth = 16*8;
+	public static int worldWidth = 16*20;
 	public static int worldDepth = 1;
 	Random random = new Random();
 
@@ -22,14 +22,15 @@ public class WorldGenerator {
 		for(int x = 0; x < img.getWidth(); x++){
 			for(int y = 0; y < img.getHeight(); y++){
 				if(img.getRGB(x, y) == -16777216)
-				img.setRGB(x, y, new Color(0,12,0).getRGB());
+				img.setRGB(x, y, new Color(0,15,0).getRGB());
 				if(random.nextInt(100) == 0){
-					for(int xx = -5; xx < 5; xx++){
-						for(int yy = -5; yy < 5; yy++){
+					int mountainSize = random.nextInt(10);
+					for(int xx = -mountainSize; xx < mountainSize; xx++){
+						for(int yy = -mountainSize; yy < mountainSize; yy++){
 							if(x+xx > 0 && x+xx < img.getWidth() && y+yy > 0 && y+yy < img.getHeight()){
 								
 								float distance = (float) Math.sqrt((x-x+xx)*(x-x+xx) + (y-y+yy)*(y-y+yy));
-								if(distance < 5 && distance > 0){
+								if(distance < mountainSize && distance > 0){
 									System.out.println(distance);
 									img.setRGB(x+xx, y+yy, new Color(0,((int)distance)+7,0).getRGB());
 								}

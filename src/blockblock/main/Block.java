@@ -24,7 +24,7 @@ public class Block extends Instance {
 		boolean draw = true;
 
 		
-		if((x - chunk.x)-1 >= 0 && (x - chunk.x)+1 <= 15 && (z - chunk.z)-1 >= 0 && (z - chunk.z)+1 <= 15  && (y)-1 >= 0 && (y)+1 <= 15){
+		if((x - chunk.x)-1 >= 0 && (x - chunk.x)+1 <= 15 && (z - chunk.z)-1 >= 0 && (z - chunk.z)+1 <= 15  && (y)-1 >= 0 && (y)+1 <= 254){
 			if(
 					chunk.blocks[(int)((x - chunk.x)-1)][(int)(y)][(int)(z - chunk.z)] != null && chunk.blocks[(int)((x - chunk.x)+1)][(int)(y)][(int)(z - chunk.z)] != null
 					&& chunk.blocks[(int)((x - chunk.x)+1)][(int)(y)][(int)(z - chunk.z)] != null
@@ -49,7 +49,7 @@ public class Block extends Instance {
 			
 			GL11.glBegin(GL11.GL_QUADS);
 
-
+			
 
 			GL11.glTexCoord2f(0, 0);
 			GL11.glVertex3f(0, 0, 0);
